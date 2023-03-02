@@ -5,7 +5,9 @@ function handleClick() {
 var numButtons = document.querySelectorAll(".drum").length;
 
 function player() {
+  
   var btnInnerHTML = this.innerHTML;
+
   switch (btnInnerHTML) {
     case "w":
       var crash = new Audio("sounds/crash.mp3");
@@ -40,14 +42,21 @@ function player() {
   }
 }
 
-function colorChanger() {
-  this.setAttribute("style", "color:white");
-}
+// function colorChanger() {
+//   this.setAttribute("style", "color:white");
+// }
 
 for (var i = 0; i < numButtons; i++) {
+
   document.querySelectorAll("button")[i].addEventListener("click", player);
-  document
-    .querySelectorAll("button")
-    [i].addEventListener("click", colorChanger);
+
+  // document
+  //   .querySelectorAll("button")[i]
+  //   .addEventListener("click", colorChanger);
   console.log(document.querySelectorAll("button")[i]);
 }
+
+var ears = document.addEventListener("keypress", function(e){
+  console.log(e.key);
+  return e.key;    
+})
