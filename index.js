@@ -1,12 +1,9 @@
-function handleClick() {
-  alert("I got clicked!");
-}
 
 var numButtons = document.querySelectorAll(".drum").length;
 
-function player() {
+function player(e) {
   
-  var btnInnerHTML = this.innerHTML;
+  var btnInnerHTML = e;
 
   switch (btnInnerHTML) {
     case "w":
@@ -57,6 +54,7 @@ for (var i = 0; i < numButtons; i++) {
 }
 
 var ears = document.addEventListener("keypress", function(e){
+  player(e.key)
   console.log(e.key);
-  return e.key;    
+   
 })
