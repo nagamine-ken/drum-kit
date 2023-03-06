@@ -1,5 +1,4 @@
 
-var numButtons = document.querySelectorAll(".drum").length;
 
 function player(e) {
   
@@ -39,22 +38,50 @@ function player(e) {
   }
 }
 
-// function colorChanger() {
-//   this.setAttribute("style", "color:white");
+// function colorChanger(e) {
+//   var currentKey = e;
+//   document.querySelector("." + currentKey).setAttribute("style", "color:white");
+//   document.querySelector("." + currentKey).classList.add("pressed");
+  
 // }
+
+function colorChanger(e) {
+  var currentKey = e;
+  document.querySelector("." + currentKey).setAttribute("style", "color:white");
+  document.querySelector("." + currentKey).classList.add("pressed");
+  
+  setTimeout(function(){
+    document.querySelector("." + currentKey).classList.remove("pressed");
+    document.querySelector("." + currentKey).setAttribute("style", "color:none");
+  }, 150);
+}
+
+
+var ears = document.addEventListener("keypress", function(e){
+  player(e.key)
+  colorChanger(e.key)
+
+  console.log(e.key);   
+})
+
+
+
+var numButtons = document.querySelectorAll(".drum").length;
 
 for (var i = 0; i < numButtons; i++) {
 
   document.querySelectorAll("button")[i].addEventListener("click", player);
 
-  // document
-  //   .querySelectorAll("button")[i]
-  //   .addEventListener("click", colorChanger);
+  document
+    .querySelectorAll("button")[i]
+    .addEventListener("click", colorChanger);
   console.log(document.querySelectorAll("button")[i]);
 }
 
-var ears = document.addEventListener("keypress", function(e){
-  player(e.key)
-  console.log(e.key);
-   
-})
+
+
+function buttonAnimation(currentKey){
+  var activeButton = document.querySelector("." + currentKey);
+  activeButton
+
+}
